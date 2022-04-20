@@ -9,12 +9,15 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import SlideshowIcon from '@mui/icons-material/Slideshow';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 
 
 
 import App from "./App";
 import Main from "./Main";
 import SearchBar from "./SearchBar";
+import OneBook from "./OneBook";
 import {fetchResults} from '../APIs'
 
 
@@ -25,6 +28,6 @@ export {
   Paper, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText,
   Button, Divider, Box, Icon, IconButton,
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,
-  styled, alpha, InputBase, SearchIcon, SlideshowIcon, BookmarkAddedIcon,
-  App, Main, SearchBar, fetchResults
+  styled, alpha, InputBase, SearchIcon, SlideshowIcon, BookmarkAddedIcon, Rating, Stack,
+  App, Main, SearchBar, OneBook, fetchResults
 };
