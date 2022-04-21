@@ -16,11 +16,13 @@ const Main = () => {
     for(let i=0; i<length; i++){
       title = x[i].volumeInfo.title;
       description = x[i].volumeInfo.description || 'No description';
-      image = x[i].volumeInfo.imageLinks.thumbnail || {noCover};
+      image = x[i].volumeInfo.imageLinks?.thumbnail === undefined ? noCover : x[i].volumeInfo.imageLinks.thumbnail;
       publisher = x[i].volumeInfo.publisher || 'Unknown publisher';
-      averageRating = x[i].volumeInfo.averageRating || 3;
-      pageCount = x[i].volumeInfo.pageCount || 100;
-      ratingsCount = x[i].volumeInfo.ratingsCount || 50;
+      averageRating = x[i].volumeInfo.averageRating || 'no rating';
+      pageCount = x[i].volumeInfo.pageCount || 'who knows';
+      ratingsCount = x[i].volumeInfo.ratingsCount || 'no rank';
+
+
       arr.push({title, description, image, publisher, averageRating, pageCount, ratingsCount})
     }
     return arr;

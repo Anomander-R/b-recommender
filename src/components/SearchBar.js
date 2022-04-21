@@ -77,10 +77,16 @@ export default function SearchBar({ setItems }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchTerm !== "") {
+
+    if (!searchTerm || /^\s*$/.test(searchTerm)) {
+      alert("Enter something! Input field should not be empty.");
+      return;
+    } else {
       setResult(fetchResults(searchTerm));
     }
   };
+
+
 
   const fetchResults = (param) => {
     let url = `https://www.googleapis.com/books/v1/volumes?q=search+${param}`;
@@ -99,36 +105,6 @@ export default function SearchBar({ setItems }) {
 
   useEffect(() => {
     setSearchTerm("");
-    // console.log(result.length);
-    // console.log(result[0]);
-    // console.log(result[1]);
-    // {
-    //     title: element.volumeInfo.title,
-    //     description: element.volumeInfo.description,
-    //     image: element.imageLinks.thumbnail,
-    //     snippet: element.searchInfo.text.Snippet,
-    //     pageCount: element.pageCount,
-    //     rating: element.averageRating,
-    //     ratingCount: element.ratingsCount
-    //   }
-
-
-    // [
-    //     element.volumeInfo.title,
-    //     element.volumeInfo.description,
-    //     element.imageLinks.thumbnail,
-    //     element.searchInfo.text.Snippet,
-    //     element.pageCount,
-    //     element.averageRating,
-    //     element.ratingsCount
-    // ]
-
-
-    // temp.forEach((element) => {
-    //  console.log(element);
-      
-    // });
-    // setItems(result);
   }, [result]);
 
   return (
@@ -152,7 +128,7 @@ export default function SearchBar({ setItems }) {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              Book Recomender
+              Book Recommender
             </Typography>
             <Typography
               variant="p2"
@@ -170,7 +146,7 @@ export default function SearchBar({ setItems }) {
                 </SearchIconWrapper>
                 <StyledInputBase
                   type="text"
-                  placeholder="Search…"
+                  placeholder="Search books…"
                   inputProps={{ "aria-label": "search" }}
                   value={searchTerm}
                   onChange={handleChange}
