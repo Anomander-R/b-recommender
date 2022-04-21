@@ -12,7 +12,7 @@ const Main = () => {
     const arr=[];
     // eslint-disable-next-line no-unused-vars
     const length = x.length;
-    let title, description, image, publisher, averageRating,  pageCount, ratingsCount;
+    let title, description, image, publisher, averageRating,  pageCount, ratingsCount, selfLink;
     for(let i=0; i<length; i++){
       title = x[i].volumeInfo.title;
       description = x[i].volumeInfo.description || 'No description';
@@ -22,8 +22,8 @@ const Main = () => {
       pageCount = x[i].volumeInfo.pageCount || 'who knows';
       ratingsCount = x[i].volumeInfo.ratingsCount || 'no rank';
 
-
-      arr.push({title, description, image, publisher, averageRating, pageCount, ratingsCount})
+      selfLink = x[i].selfLink || 'no link';
+      arr.push({title, description, image, publisher, averageRating, pageCount, ratingsCount, selfLink})
     }
     return arr;
   }

@@ -1,13 +1,4 @@
 import React, { useState, Fragment, useEffect } from "react";
-// import { styled, alpha } from '@mui/material/styles';
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import InputBase from '@mui/material/InputBase';
-// import SearchIcon from '@mui/icons-material/Search';
-// import SlideshowIcon from '@mui/icons-material/Slideshow';
 
 import {
   styled,
@@ -27,8 +18,7 @@ import {
   DialogTitle,
   Button,
 } from ".";
-//import {fetchResults} from '.'
-// import { SearchApi } from '.'
+
 import axios from "axios";
 
 const Search = styled("div")(({ theme }) => ({
@@ -81,41 +71,41 @@ export default function SearchBar({ setItems }) {
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
+    if (error) {
+      setError(false);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!searchTerm || /^\s*$/.test(searchTerm)) {
+      setError(false);
       setAlertModal(true);
       return;
     } else {
-        let input = fetchResults(searchTerm);
-
-        if (input?.totalItems===0){
-          setError(true);
-        }
+      fetchResults(searchTerm);
     }
   };
 
-  const handleClose=()=>{
+  const handleClose = () => {
     setAlertModal(false);
-  }
-
-
+  };
 
   const fetchResults = (param) => {
     let url = `https://www.googleapis.com/books/v1/volumes?q=search+${param}`;
     axios
       .get(url)
       .then((res) => {
-        //console.table(res.data);
+        console.table(res.data);
         setResult([...res.data.items]);
         setItems([...res.data.items]);
         return;
       })
       .catch((err) => {
-        return(err);
+        setResult([]);
+        setItems([]);
+        setError(true);
       });
   };
 
@@ -173,31 +163,23 @@ export default function SearchBar({ setItems }) {
         </AppBar>
       </Box>
 
-
+      {error ? (
+        <h4 style={{ color: "red" }}>
+          Only one thing to recommend. <br />
+          Try again.
+        </h4>
+      ) : null}
       <Dialog open={alertModal} onClose={handleClose}>
-        <DialogTitle id="alert-dialog-title">
-          Important
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">Important</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <b>You have to type something!</b> 
+            <b>You have to type something!</b>
           </DialogContentText>
-          
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>OK</Button>
         </DialogActions>
       </Dialog>
-
-
-
-
-
-
-
-
-
-
     </Fragment>
   );
 }

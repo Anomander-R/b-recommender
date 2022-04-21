@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { OneBook, Box} from '../components'
+import { OneBook, Box, RecommendButton} from '../components'
 
 const BookGrid = ({books}) => {
 
@@ -21,6 +21,7 @@ const BookGrid = ({books}) => {
         if (books!==[] && books!==undefined){
           let temp = createBookComponent(books);
           setSeed(temp);
+          console.log(books)
         }
       }, [books])
 
@@ -28,14 +29,16 @@ const BookGrid = ({books}) => {
 
 
   return (
-    <Box sx={{ display: 'grid', gridTemplateColumns: {
-        xs: "repeat(1, 1fr)",
-        sm: "repeat(2, 1fr)",
-        md: "repeat(3, 1fr)",
-        lg: "repeat(4, 1fr)",
-        xl: "repeat(5, 1fr)",
-      } }}>
-      {seed}
+    <Box><RecommendButton/>
+      <Box sx={{ display: 'grid', gridTemplateColumns: {
+          xs: "repeat(1, 1fr)",
+          sm: "repeat(2, 1fr)",
+          md: "repeat(3, 1fr)",
+          lg: "repeat(4, 1fr)",
+          xl: "repeat(5, 1fr)",
+        } }}>
+        {seed}
+      </Box>
     </Box>
   )
 }
