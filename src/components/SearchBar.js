@@ -20,6 +20,12 @@ import {
   InputBase,
   SearchIcon,
   BookmarkAddedIcon,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Button,
 } from ".";
 //import {fetchResults} from '.'
 // import { SearchApi } from '.'
@@ -70,6 +76,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchBar({ setItems }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [result, setResult] = useState("");
+  const [error, setError] = useState(false);
+  const [alertModal, setAlertModal] = useState(false);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -79,12 +87,20 @@ export default function SearchBar({ setItems }) {
     e.preventDefault();
 
     if (!searchTerm || /^\s*$/.test(searchTerm)) {
-      alert("Enter something! Input field should not be empty.");
+      setAlertModal(true);
       return;
     } else {
-      setResult(fetchResults(searchTerm));
+        let input = fetchResults(searchTerm);
+
+        if (input?.totalItems===0){
+          setError(true);
+        }
     }
   };
+
+  const handleClose=()=>{
+    setAlertModal(false);
+  }
 
 
 
@@ -99,7 +115,7 @@ export default function SearchBar({ setItems }) {
         return;
       })
       .catch((err) => {
-        console.log(err);
+        return(err);
       });
   };
 
@@ -156,6 +172,32 @@ export default function SearchBar({ setItems }) {
           </Toolbar>
         </AppBar>
       </Box>
+
+
+      <Dialog open={alertModal} onClose={handleClose}>
+        <DialogTitle id="alert-dialog-title">
+          Important
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <b>You have to type something!</b> 
+          </DialogContentText>
+          
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>OK</Button>
+        </DialogActions>
+      </Dialog>
+
+
+
+
+
+
+
+
+
+
     </Fragment>
   );
 }

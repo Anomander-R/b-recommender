@@ -6,6 +6,6 @@ export const fetchResults = (param) =>{
 	axios.get(url).then((res)=>{
       return(res.data.items[0]);
     }).catch((err)=>{
-      console.log(err);
+      return(err);
     })
   }

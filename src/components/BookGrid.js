@@ -9,7 +9,7 @@ const BookGrid = ({books}) => {
         const arr=[];
         // eslint-disable-next-line no-unused-vars
         const length = x.length;
-        let title, description, image, publisher, averageRating,  pageCount, ratingsCount;
+
         for(let i=0; i<length; i++){
           
           arr.push(<Box sx={{ display: 'flex', justifyContent: 'center', }} key={`uniqueBox${i}`}><OneBook book={x[i]} size={'small'} key={`unique${i}`}/></Box>)
