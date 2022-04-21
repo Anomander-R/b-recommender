@@ -18,7 +18,9 @@ import App from "./App";
 import Main from "./Main";
 import SearchBar from "./SearchBar";
 import OneBook from "./OneBook";
+import BookGrid from "./BookGrid";
 import {fetchResults} from '../APIs'
+import noCover from '../assets/images/playbooks_no_cover.jpg'
 
 
 export {
@@ -29,5 +31,5 @@ export {
   Button, Divider, Box, Icon, IconButton,
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,
   styled, alpha, InputBase, SearchIcon, SlideshowIcon, BookmarkAddedIcon, Rating, Stack,
-  App, Main, SearchBar, OneBook, fetchResults
+  App, Main, SearchBar, OneBook, BookGrid, fetchResults, noCover
 };

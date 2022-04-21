@@ -15,7 +15,7 @@ import {
   DialogTitle,
   Rating,
   Stack
-} from "@mui/material";
+} from ".";
 
 const sx_cover = {
   maxWidth: 200,
@@ -82,7 +82,7 @@ const OneBook = ({book, size='small'}) => {
       setOpen(false);
     };
 
-  let {title, description, image, publisher, averageRating, pageCount, ratingsCount} = example;
+  let {title, description, image, publisher, averageRating, pageCount, ratingsCount} = book;
 
 
 
@@ -95,11 +95,11 @@ const OneBook = ({book, size='small'}) => {
   let titleSize= 'h5';
 
   if (size==='small'){
-    maxWidth=250;
+    maxWidth=150;
     marginSize= 1;
     //boxShadow= 5;
     titleSize= 'p2';
-    height=250;
+    height=300;
     sx_choice=sx_small;
   } else if (size==='large') {
     maxWidth=200;

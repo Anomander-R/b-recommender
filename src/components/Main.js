@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, {useState, useEffect} from 'react'
-import {SearchBar, OneBook} from '.'
+import {SearchBar, BookGrid, noCover} from '.'
 
 const Main = () => {
 
@@ -16,7 +16,7 @@ const Main = () => {
     for(let i=0; i<length; i++){
       title = x[i].volumeInfo.title;
       description = x[i].volumeInfo.description || 'No description';
-      image = x[i].volumeInfo.imageLinks.thumbnail;
+      image = x[i].volumeInfo.imageLinks.thumbnail || {noCover};
       publisher = x[i].volumeInfo.publisher || 'Unknown publisher';
       averageRating = x[i].volumeInfo.averageRating || 3;
       pageCount = x[i].volumeInfo.pageCount || 100;
@@ -36,7 +36,7 @@ const Main = () => {
   return (
     <div>
         <SearchBar setItems={setItems}/>
-        <OneBook/>
+        <BookGrid books={books}/>
     </div>
   )
 }
