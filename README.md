@@ -1,6 +1,6 @@
-# Project 21, Phase 5 - Reccommendation App
+# Project 21, Phase 5 - Recommendation App
 
-The Reccommendation App allows the user to enter a title and search. 
+The Recommendation App allows the user to enter a title and search. 
 
 ### Short description of the application
 
@@ -22,7 +22,9 @@ It is using a Google Books API for search - ten recommended books are displayed.
     BookGrid, 
     OneBook,
     SearchBar,  
-   
+    RecommendedBook,   
+    RecommendModal,  
+    RecommendButton     
 
 ### Technologies
 

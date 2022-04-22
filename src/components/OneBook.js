@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React from "react";
 import {
   CardActions,
@@ -62,19 +62,7 @@ const OneBook = ({ book, size = "small" }) => {
   }
 
   let sx_choice = sx_small;
-  let maxWidth = 200;
   let height = 300;
-  let marginSize = 4;
-  let boxShadow2 = 20;
-  let titleSize = "h5";
-
-  if (size === "small") {
-    maxWidth = 150;
-    marginSize = 1;
-    //boxShadow= 5;
-    titleSize = "p2";
-    height = 300;
-  }
 
   return (
     <Box>
@@ -84,9 +72,6 @@ const OneBook = ({ book, size = "small" }) => {
           <Typography gutterBottom variant="body2" component="div">
             {title}
           </Typography>
-          {/* <Typography variant="body2" color="text.secondary">
-          {description}
-        </Typography> */}
         </CardContent>
         <CardActions style={{ justifyContent: "center", alignContent: "end" }}>
           <Button

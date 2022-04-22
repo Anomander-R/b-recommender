@@ -2,17 +2,6 @@ import React, { useEffect, useState } from "react";
 import { OneBook, Box, RecommendButton, RecommendModal } from "../components";
 
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
 const BookGrid = ({ books }) => {
   const [seed, setSeed] = useState([]);
   const [randomNumber, setRandomNumber] = useState(-1);
@@ -51,9 +40,8 @@ const BookGrid = ({ books }) => {
     } else {
       setDisabled(false);
     }
+    // eslint-disable-next-line
   }, [seed]);
-
-  console.log(theBook,randomNumber)
 
   const recBook = () => {
     if (randomNumber >= 0 && books.length > 0) {
@@ -62,23 +50,22 @@ const BookGrid = ({ books }) => {
       return books[0];
     }
   };
-
   useEffect(() => {
     if (books.length > 0) {
       setTheBook(recBook);
     }
+    // eslint-disable-next-line
   }, [books]);
 
   const newRandomBook = ()=>{
-    setTheBook(seed[randomNumber]);
+    setTheBook(books[randomNumber]);
   }
-
   useEffect(() => {
     if (randomNumber!==-1) {
       newRandomBook();
     }
+    // eslint-disable-next-line
   }, [randomNumber]);
-
 
   return (
     <Box>
@@ -97,14 +84,11 @@ const BookGrid = ({ books }) => {
       >
         {seed}
       </Box>
-
-
         <RecommendModal
           book={theBook}
           randomNumber={randomNumber}
           setRandomNumber={setRandomNumber}
         />
-
     </Box>
   );
 };

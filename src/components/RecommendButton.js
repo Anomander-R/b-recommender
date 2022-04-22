@@ -1,32 +1,17 @@
 import React from "react";
-import {
-    Button,
-    spacing,
-    styled,
-    Typography,
-    Box,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    Rating,
-    Stack,
-  } from ".";
+import { Button, spacing, styled } from ".";
 
-  const StyledButton = styled(Button)(spacing);
+const StyledButton = styled(Button)(spacing);
 
-const RecommendButton = ({setRandomNumber, disabled}) => {
-
-  const generateNumber = ()=>{
-    let temp = Math.floor(Math.random()*10);
+const RecommendButton = ({ setRandomNumber, disabled }) => {
+  const generateNumber = () => {
+    let temp = Math.floor(Math.random() * 10);
     return temp;
-  }
+  };
 
-  const handleClick =()=>{
+  const handleClick = () => {
     setRandomNumber(generateNumber());
-  }
-
+  };
 
   return (
     <StyledButton
@@ -43,6 +28,3 @@ const RecommendButton = ({setRandomNumber, disabled}) => {
 };
 
 export default RecommendButton;
-
-
-
