@@ -16,14 +16,26 @@ import {
 
   const StyledButton = styled(Button)(spacing);
 
-const RecommendButton = () => {
+const RecommendButton = ({setRandomNumber, disabled}) => {
+
+  const generateNumber = ()=>{
+    let temp = Math.floor(Math.random()*10);
+    return temp;
+  }
+
+  const handleClick =()=>{
+    setRandomNumber(generateNumber());
+  }
+
+
   return (
     <StyledButton
       mt={1}
       size="small"
       variant="outlined"
       fullWidth
-    //   onClick={handleClickOpen}
+      disabled={disabled}
+      onClick={handleClick}
     >
       Recommend
     </StyledButton>

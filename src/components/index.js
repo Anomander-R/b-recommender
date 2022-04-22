@@ -13,6 +13,7 @@ import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
+import Modal from '@mui/material/Modal';
 
 import App from "./App";
 import Main from "./Main";
@@ -20,6 +21,9 @@ import SearchBar from "./SearchBar";
 import OneBook from "./OneBook";
 import BookGrid from "./BookGrid";
 import RecommendButton from "./RecommendButton";
+import RecommendedBook from "./RecommendedBook";
+import RecommendModal from "./RecommendModal";
+import Visible from "./Visible";
 import noCover from '../assets/images/playbooks_no_cover.jpg'
 
 
@@ -29,7 +33,7 @@ export {
   Typography, TextField, makeStyles,
   Paper, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText,
   Button, Divider, Box, Icon, IconButton,
-  Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, spacing,
+  Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Modal, spacing,
   styled, alpha, InputBase, SearchIcon, SlideshowIcon, BookmarkAddedIcon, Rating, Stack, Tooltip,
-  App, Main, SearchBar, OneBook, BookGrid, RecommendButton, noCover
+  App, Main, SearchBar, OneBook, BookGrid, RecommendButton, RecommendedBook, RecommendModal, Visible, noCover
 };
