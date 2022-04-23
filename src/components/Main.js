@@ -29,7 +29,7 @@ const Main = () => {
       pageCount = x[i].volumeInfo.pageCount || "who knows";
       ratingsCount = x[i].volumeInfo.ratingsCount || "no rank";
 
-      selfLink = x[i].selfLink || "no link";
+      selfLink = x[i].volumeInfo.previewLink || "no link";
       arr.push({
         title,
         description,

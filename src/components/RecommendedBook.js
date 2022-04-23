@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
-  CardActions,
   Card,
   CardContent,
   CardMedia,
-  Button,
   Typography,
   Box,
 } from ".";
@@ -14,10 +12,11 @@ const sx_small = {
   flexDirection: "column",
   justifyContent: "space-between",
   maxWidth: 200,
-  height: 450,
-  marginTop: 4,
-  marginLeft: 4,
-  marginRight: 4,
+  //height: 450,
+  marginTop: 1,
+  marginLeft: 1,
+  marginRight: 1,
+  marginBottom: 2,
 };
 
 const RecommendedBook = ({
@@ -38,11 +37,6 @@ const RecommendedBook = ({
       handleClickOpen();
     }
   }, [randomNumber]);
-
-  const handleClose = () => {
-    setRandomNumber(-1);
-    setOpen(false);
-  };
 
   let { title, image, publisher, pageCount, selfLink } = book;
 
@@ -69,7 +63,7 @@ const RecommendedBook = ({
           title={title}
         />
         <CardContent>
-          <Typography gutterBottom variant="body2" component="div">
+          <Typography gutterBottom variant="body1" component="div">
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -86,16 +80,6 @@ const RecommendedBook = ({
             </Typography>
           ) : null}
         </CardContent>
-        <CardActions style={{ justifyContent: "center", alignContent: "end" }}>
-          <Button
-            size="small"
-            variant="outlined"
-            fullWidth
-            onClick={handleClose}
-          >
-            Close
-          </Button>
-        </CardActions>
       </Card>
     </Box>
   );

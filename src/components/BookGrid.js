@@ -10,7 +10,6 @@ const BookGrid = ({ books }) => {
 
   const createBookComponent = (x) => {
     const arr = [];
-    // eslint-disable-next-line no-unused-vars
     const length = x.length;
 
     for (let i = 0; i < length; i++) {
@@ -30,7 +29,6 @@ const BookGrid = ({ books }) => {
     if (books !== [] && books !== undefined && books !== "") {
       let temp = createBookComponent(books);
       setSeed(temp);
-      console.log(books);
     }
   }, [books]);
 

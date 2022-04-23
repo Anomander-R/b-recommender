@@ -97,7 +97,6 @@ export default function SearchBar({ setItems }) {
     axios
       .get(url)
       .then((res) => {
-        console.table(res.data);
         setResult([...res.data.items]);
         setItems([...res.data.items]);
         return;
